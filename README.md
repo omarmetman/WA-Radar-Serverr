@@ -1,41 +1,44 @@
-<h1 align="center">
-  <br>
-  📡 WA-Radar-Server
-  <br>
-</h1>
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=WA-Radar-Server&fontSize=70&animation=fadeIn&fontAlignY=35&desc=Instantly%20catch%20deleted%20WhatsApp%20messages!&descAlignY=60&descAlign=50" alt="WA-Radar-Server Header" />
 
-<h4 align="center">Backend server that monitors deleted WhatsApp messages and forwards them to a Telegram bot instantly.</h4>
+  <h4>Backend server that monitors deleted WhatsApp messages and forwards them to a Telegram bot instantly.</h4>
 
-<p align="center">
-  <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-18+-green.svg" alt="Node.js"></a>
-  <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/Docker-Supported-blue.svg" alt="Docker"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
-</p>
+  <p>
+    <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-18+-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js"></a>
+    <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/Docker-Supported-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"></a>
+    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-F7DF1E?style=for-the-badge&logo=opensourceinitiative&logoColor=black" alt="License: MIT"></a>
+  </p>
 
-<p align="center">
-  <a href="#-about">About</a> •
-  <a href="#-how-it-works">How It Works</a> •
-  <a href="#-tech-stack">Tech Stack</a> •
-  <a href="#-installation--setup">Installation</a> •
-  <a href="#-docker-setup">Docker</a> •
-  <a href="#-license">License</a>
-</p>
+  <p>
+    <a href="#-about"><b>About</b></a> •
+    <a href="#-how-it-works"><b>How It Works</b></a> •
+    <a href="#-tech-stack"><b>Tech Stack</b></a> •
+    <a href="#-installation--setup"><b>Installation</b></a> •
+    <a href="#-docker-setup"><b>Docker</b></a> •
+    <a href="#-license"><b>License</b></a>
+  </p>
+</div>
 
 ---
 
 ## 📖 About
 
-**WA-Radar-Server** connects to your WhatsApp account, listens for incoming text messages, and stores them temporarily in memory. When someone deletes a message ("Delete for everyone"), the server immediately sends the deleted message content to your Telegram bot. Never miss a deleted message again!
+**WA-Radar-Server** acts as a silent watcher for your WhatsApp account. It listens for incoming text messages and temporarily stores them in memory. The moment someone hits "Delete for everyone", the server intercepts it and immediately dispatches the deleted content straight to your Telegram bot. Never wonder *"what did they delete?"* again!
 
 ## ⚙️ How It Works
 
-1. **Start Server:** The server starts and requests a WhatsApp Web QR code.
-2. **QR Code Delivery:** The QR code is sent directly to your Telegram bot.
-3. **Scan & Link:** Scan it from your WhatsApp mobile app (**Settings > Linked Devices**).
-4. **Background Monitoring:** The server continuously monitors all incoming text messages.
-5. **Instant Alert:** When a message is deleted, you receive a perfectly formatted alert on Telegram.
+1. **Start Server:** The server initializes and requests a WhatsApp Web QR code.
+2. **QR Code Delivery:** The QR code is forwarded directly to your Telegram bot.
+3. **Scan & Link:** Scan it using your WhatsApp mobile app (**Settings > Linked Devices**).
+4. **Background Monitoring:** The server continuously monitors and logs all incoming text messages.
+5. **Instant Alert:** When a deletion is detected, you receive a perfectly formatted alert on Telegram.
+
+<br>
+
+<div align="center">
 
 > **🔔 Alert Format Example:**
+>
 > ```text
 > 🚨 Deleted Message Detected!
 > 👤 Sender: John Doe
@@ -43,7 +46,13 @@
 > 🕒 Time: 10:30:45 PM
 > ```
 
+</div>
+
 ## 💻 Tech Stack
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=nodejs,docker,github&theme=light" alt="Tech Stack" />
+</p>
 
 - **Node.js** - Runtime environment
 - **whatsapp-web.js** - WhatsApp Web integration
@@ -77,6 +86,7 @@ Create a `.env` file in the root directory and add your Telegram credentials:
 TG_TOKEN=your_bot_token_here
 TG_CHAT_ID=your_chat_id_here
 ```
+*(Note: It is recommended to use `.env.example` as a template for public repositories).*
 
 ### 4. Start the server
 ```bash
@@ -85,7 +95,7 @@ npm start
 
 ## 🐳 Docker Setup
 
-Running the app via Docker is highly recommended for background execution and containerization.
+Running the app via Docker is highly recommended for background execution and isolation.
 
 **Start with Docker Compose:**
 ```bash
@@ -143,7 +153,7 @@ CMD ["node", "index.js"]
 ## ⌨️ Commands Reference
 
 | Command | Description |
-|---------|-------------|
+|:---|:---|
 | `npm start` | Start the server locally |
 | `npm install` | Install all required dependencies |
 | `Ctrl + C` | Stop the local server |
@@ -158,7 +168,7 @@ WA-Radar-Server/
 ├── index.js           # Main application code
 ├── package.json       # Dependencies list
 ├── package-lock.json  # Locked dependencies versions
-├── .env               # Environment variables (ignored in Git)
+├── .env.example       # Environment variables template (Use this!)
 ├── .gitignore         # Excluded files
 └── session/           # WhatsApp session data (auto-generated)
 ```
@@ -181,9 +191,17 @@ This project is licensed under the **MIT License**.
 
 Copyright (c) 2024 **Omar M. Etman**
 
-## 👨‍💻 Developer
+<br>
 
-**Omar M. Etman**
-- 🌐 Website: [omarmetman.vercel.app](https://omarmetman.vercel.app/)
-- 🐙 GitHub: [@omarmetman](https://github.com/omarmetman)
-- 📦 Repository: [WA-Radar-Serverr](https://github.com/omarmetman/WA-Radar-Serverr.git)
+<div align="center">
+  <h3>👨‍💻 Developed by Omar M. Etman</h3>
+  <a href="https://github.com/omarmetman">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  </a>
+  <a href="https://omarmetman.vercel.app/">
+    <img src="https://img.shields.io/badge/Website-000000?style=for-the-badge&logo=Vercel&logoColor=white" alt="Website" />
+  </a>
+  <a href="https://github.com/omarmetman/WA-Radar-Serverr.git">
+    <img src="https://img.shields.io/badge/Repository-2b3137?style=for-the-badge&logo=git&logoColor=white" alt="Repo" />
+  </a>
+</div>
