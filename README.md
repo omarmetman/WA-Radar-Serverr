@@ -205,5 +205,5 @@ CMD ["node", "index.js"]
 
 ### ✨ Credits & Acknowledgements
 > **Note:** This project is fully copied and inspired by the original work of **Ebtesam Ahmed**. 
-> You can find the original creator on TikTok: **[Ebtesam Ahmed (@saaamahmed)](https://www.tiktok.com/@saaamahmed?_r=1&_t=ZS-96vjX0c4J7M)**
+> You can find the original creator on TikTok: **[Ebtesam Elganady (@saaamahmed)](https://www.tiktok.com/@saaamahmed?_r=1&_t=ZS-96vjX0c4J7M)**
 
