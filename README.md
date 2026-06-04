@@ -1,115 +1,104 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=WA-Radar-Server&fontSize=70&animation=fadeIn&fontAlignY=35&desc=Instantly%20catch%20deleted%20WhatsApp%20messages!&descAlignY=60&descAlign=50" alt="WA-Radar-Server Header" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=00a884&height=220&section=header&text=WA-Radar-Server&fontSize=65&animation=fadeIn&fontAlignY=38&desc=The%20Ultimate%20Deleted%20Message%20Interceptor&descAlignY=65&descAlign=50" alt="Header" width="100%" />
 
-  <h4>Backend server that monitors deleted WhatsApp messages and forwards them to a Telegram bot instantly.</h4>
+  <a href="https://readme-typing-svg.herokuapp.com">
+    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=20&pause=1000&color=00a884&center=true&vCenter=true&width=600&lines=Catch+Deleted+Messages+Instantly...;Forward+Directly+to+Telegram...;100%25+Automated+Node.js+Server...;Secure,+Fast,+and+Dockerized..." alt="Typing SVG" />
+  </a>
 
-  <p>
-    <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-18+-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js"></a>
-    <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/Docker-Supported-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"></a>
-    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-F7DF1E?style=for-the-badge&logo=opensourceinitiative&logoColor=black" alt="License: MIT"></a>
-  </p>
+  <br>
 
-  <p>
-    <a href="#-about"><b>About</b></a> •
-    <a href="#-how-it-works"><b>How It Works</b></a> •
-    <a href="#-tech-stack"><b>Tech Stack</b></a> •
-    <a href="#-installation--setup"><b>Installation</b></a> •
-    <a href="#-docker-setup"><b>Docker</b></a> •
-    <a href="#-license"><b>License</b></a>
-  </p>
+  <!-- Repo Stats Badges -->
+  <a href="https://github.com/omarmetman/WA-Radar-Serverr/stargazers"><img src="https://img.shields.io/github/stars/omarmetman/WA-Radar-Serverr?style=for-the-badge&color=FFD700&logo=github&logoColor=white" alt="Stars" /></a>
+  <a href="https://github.com/omarmetman/WA-Radar-Serverr/network/members"><img src="https://img.shields.io/github/forks/omarmetman/WA-Radar-Serverr?style=for-the-badge&color=007EC6&logo=github&logoColor=white" alt="Forks" /></a>
+  <a href="https://github.com/omarmetman/WA-Radar-Serverr/issues"><img src="https://img.shields.io/github/issues/omarmetman/WA-Radar-Serverr?style=for-the-badge&color=E83E8C&logo=github&logoColor=white" alt="Issues" /></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-28A745?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="License: MIT"></a>
+
+  <br><br>
+  <b><a href="#-features">Features</a></b> •
+  <b><a href="#-quick-start">Quick Start</a></b> •
+  <b><a href="#-docker-deployment">Docker</a></b> •
+  <b><a href="#-how-it-works">How it Works</a></b> •
+  <b><a href="#-contributing">Contributing</a></b>
+</div>
+
+<br>
+
+---
+
+## 📖 Introduction
+
+**WA-Radar-Server** is a lightweight, headless Node.js backend that acts as a silent guardian for your WhatsApp account. It intercepts incoming text messages and temporarily buffers them. If a sender uses the *"Delete for everyone"* feature, the server instantly detects the revocation and forwards the original message directly to your private Telegram bot. 
+
+Never lose a piece of information, and never wonder *"what did they delete?"* again.
+
+---
+
+## ✨ Core Features
+
+| 🚀 Feature | 📝 Description |
+| :--- | :--- |
+| **Instant Alerts** | Zero-delay forwarding of deleted text messages directly to your Telegram. |
+| **Stealth Operation** | Runs entirely in the background (`headless: true`) using Puppeteer. |
+| **Smart Memory Management** | Auto-cleans RAM by keeping only the last 500 messages to ensure 24/7 uptime without memory leaks. |
+| **Remote Authentication** | Sends the WhatsApp Web QR code to your Telegram bot for easy, remote linking. |
+| **Docker Ready** | Pre-configured `Dockerfile` and `docker-compose.yml` for instant, containerized deployment. |
+
+---
+
+## 🛠️ Tech Stack & Tools
+
+<div align="center">
+  <img src="https://skillicons.dev/icons?i=nodejs,js,docker,bash,github,git&perline=6" alt="Tech Stack" />
 </div>
 
 ---
 
-## 📖 About
+## 🚀 Quick Start (Local Development)
 
-**WA-Radar-Server** acts as a silent watcher for your WhatsApp account. It listens for incoming text messages and temporarily stores them in memory. The moment someone hits "Delete for everyone", the server intercepts it and immediately dispatches the deleted content straight to your Telegram bot. Never wonder *"what did they delete?"* again!
+### Prerequisites
+* **Node.js** v18+
+* A **Telegram Bot Token** (Get from [@BotFather](https://t.me/BotFather))
+* Your **Telegram Chat ID** (Get from [@userinfobot](https://t.me/userinfobot))
 
-## ⚙️ How It Works
-
-1. **Start Server:** The server initializes and requests a WhatsApp Web QR code.
-2. **QR Code Delivery:** The QR code is forwarded directly to your Telegram bot.
-3. **Scan & Link:** Scan it using your WhatsApp mobile app (**Settings > Linked Devices**).
-4. **Background Monitoring:** The server continuously monitors and logs all incoming text messages.
-5. **Instant Alert:** When a deletion is detected, you receive a perfectly formatted alert on Telegram.
-
-<br>
-
-<div align="center">
-
-> **🔔 Alert Format Example:**
->
-> ```text
-> 🚨 Deleted Message Detected!
-> 👤 Sender: John Doe
-> 💬 Message: The deleted text content
-> 🕒 Time: 10:30:45 PM
-> ```
-
-</div>
-
-## 💻 Tech Stack
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=nodejs,docker,github&theme=light" alt="Tech Stack" />
-</p>
-
-- **Node.js** - Runtime environment
-- **whatsapp-web.js** - WhatsApp Web integration
-- **Puppeteer** - Headless browser automation
-- **Telegram Bot API** - Sending alerts
-- **QRCode** - QR code generation
-- **Docker** - Containerization (optional)
-
-## 📋 Requirements
-
-- **Node.js** (v18 or higher)
-- **Telegram Bot Token** (Create one via [@BotFather](https://t.me/BotFather))
-- **Telegram Chat ID** (Get yours from [@userinfobot](https://t.me/userinfobot))
-
-## 🚀 Installation & Setup
-
-### 1. Clone the repository
+### 1. Clone & Install
 ```bash
 git clone https://github.com/omarmetman/WA-Radar-Serverr.git
 cd WA-Radar-Serverr
-```
-
-### 2. Install dependencies
-```bash
 npm install
 ```
 
-### 3. Environment Configuration
-Create a `.env` file in the root directory and add your Telegram credentials:
+### 2. Configure Environment
+Create a `.env.example` file, rename it to `.env`, and add your credentials:
 ```env
-TG_TOKEN=your_bot_token_here
+# DO NOT commit your actual .env file to GitHub!
+TG_TOKEN=your_telegram_bot_token_here
 TG_CHAT_ID=your_chat_id_here
 ```
-*(Note: It is recommended to use `.env.example` as a template for public repositories).*
 
-### 4. Start the server
+### 3. Launch
 ```bash
 npm start
 ```
+*Check your Telegram bot for the login QR code!*
 
-## 🐳 Docker Setup
+---
 
-Running the app via Docker is highly recommended for background execution and isolation.
+## 🐳 Docker Deployment (Recommended for Production)
 
-**Start with Docker Compose:**
+Deploying via Docker ensures the server runs flawlessly in the background, fully isolated from your host system.
+
 ```bash
+# Start the server in detached mode
 docker-compose up -d
-```
 
-**View Logs:**
-```bash
+# Monitor the real-time logs
 docker logs -f wa-radar
 ```
 
 <details>
-<summary><b>View docker-compose.yml</b></summary>
+<summary><b>🛠️ Click to expand: View Docker Configuration Files</b></summary>
 
+**`docker-compose.yml`**
 ```yaml
 version: '3.8'
 services:
@@ -125,83 +114,80 @@ services:
     stdin_open: true
     tty: true
 ```
-</details>
 
-<details>
-<summary><b>View Dockerfile</b></summary>
-
+**`Dockerfile`**
 ```dockerfile
-FROM node:18-slim
-RUN apt-get update && apt-get install -y libgbm1 libgtk-3-0 libnss3 libx11-xcb1
+FROM ghcr.io/puppeteer/puppeteer:latest
+
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/google-chrome-stable
+
+USER root
 WORKDIR /app
+
 COPY package*.json ./
 RUN npm ci --only=production
-COPY index.js ./
+
+COPY . .
 CMD ["node", "index.js"]
 ```
 </details>
 
-## 🏁 First Time Setup Guide
+---
 
-1. Start the server using `npm start` or Docker.
-2. Check your Telegram bot - you will receive a QR code image.
-3. Open WhatsApp on your phone.
-4. Navigate to **Settings > Linked Devices > Link a Device**.
-5. Scan the QR code displayed in your Telegram chat.
-6. Wait for the success message: `✅ WhatsApp Radar is active!`
+## ⚙️ How It Works (The Flow)
 
-## ⌨️ Commands Reference
-
-| Command | Description |
-|:---|:---|
-| `npm start` | Start the server locally |
-| `npm install` | Install all required dependencies |
-| `Ctrl + C` | Stop the local server |
-| `docker-compose up -d` | Start containerized server in background |
-| `docker-compose down` | Stop and remove Docker container |
-| `docker logs -f wa-radar` | View real-time container logs |
-
-## 📂 Project Structure
-
-```text
-WA-Radar-Server/
-├── index.js           # Main application code
-├── package.json       # Dependencies list
-├── package-lock.json  # Locked dependencies versions
-├── .env.example       # Environment variables template (Use this!)
-├── .gitignore         # Excluded files
-└── session/           # WhatsApp session data (auto-generated)
-```
-
-## ⚠️ Limitations
-
-- **Text Only:** Media files (images, videos, voice notes) are currently ignored.
-- **Memory Limits:** Only stores the last 500 messages in RAM to prevent memory leaks.
-- **Volatile Storage:** Restarting the server clears all temporarily stored messages.
-- **No Retroactive Recovery:** Cannot recover messages deleted *before* the server was started.
-
-## 🛑 Disclaimer
-
-> **For Educational Purposes Only.**
-> Using this project may violate WhatsApp's Terms of Service. By using this software, you assume full responsibility for any consequences, including potential account bans. The developer is not liable for any misuse.
-
-## 📄 License
-
-This project is licensed under the **MIT License**.
-
-Copyright (c) 2024 **Omar M. Etman**
+<div align="center">
+  <code>WhatsApp Web Initialization</code> ➔ <code>QR sent to Telegram</code> ➔ <code>User Scans QR</code> ➔ <code>Server Listens</code> <br><br>
+  ⬇️ <br><br>
+  <code>Message Received</code> ➔ <code>Stored in RAM Map (Max 500)</code> <br><br>
+  ⬇️ <br><br>
+  <code>Message Revoked</code> ➔ <code>Look up in RAM</code> ➔ <code>Forward to Telegram API</code>
+</div>
 
 <br>
 
+> **🔔 Telegram Alert Example:**
+> ```text
+> 🚨 *Deleted Message Detected!*
+> 👤 *Sender:* John Doe
+> 📩 *Message:* The content they tried to hide.
+> 🕒 *Time:* 10:30:45 PM
+> ```
+
+---
+
+## 🤝 Contributing
+
+Contributions make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## ⚠️ Disclaimer & Limitations
+
+* **Media Limitation:** Currently tracks **text messages only**. Media (images, videos, voice notes) are ignored to conserve server bandwidth and memory.
+* **Volatile Memory:** Restarting the server clears the RAM. Messages deleted *before* the server starts cannot be recovered.
+* **ToS Warning:** This project is for **educational and research purposes only**. Using automated tools may violate WhatsApp's Terms of Service. The developer is not responsible for any account suspensions.
+
+---
+
+## 👨‍💻 Developer & License
+
 <div align="center">
-  <h3>👨‍💻 Developed by Omar M. Etman</h3>
+  Distributed under the <b>MIT License</b>. See <code>LICENSE</code> for more information.
+  <br><br>
+  <b>Developed with ❤️ by Omar M. Etman</b>
+  <br><br>
   <a href="https://github.com/omarmetman">
     <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
   </a>
   <a href="https://omarmetman.vercel.app/">
     <img src="https://img.shields.io/badge/Website-000000?style=for-the-badge&logo=Vercel&logoColor=white" alt="Website" />
-  </a>
-  <a href="https://github.com/omarmetman/WA-Radar-Serverr.git">
-    <img src="https://img.shields.io/badge/Repository-2b3137?style=for-the-badge&logo=git&logoColor=white" alt="Repo" />
   </a>
 </div>
